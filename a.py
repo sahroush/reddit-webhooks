@@ -1,6 +1,6 @@
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import feedparser ,time , requests , shutil
-f = feedparser.parse('https://www.reddit.com/r/Animemes/.rss')
+f = feedparser.parse('https://www.reddit.com/r/subreddit/.rss')
 webhook = DiscordWebhook(url='discord webhook url')
 def send(ur):
     embed = DiscordEmbed(title='', description='', color=242424)
