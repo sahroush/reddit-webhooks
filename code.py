@@ -16,6 +16,7 @@ def splitUrl(imageUrl):
         if 'jpg' or 'webm' or 'mp4' or 'gif' or 'gifv' or 'png' in imageUrl:
             return imageUrl.split('/')[-1]
 def fetch():
+    global prev
     subJson = ''
     if subJson:
         url = makeUrl(subJson['data']['after'], subreddit)
