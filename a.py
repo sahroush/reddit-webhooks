@@ -1,7 +1,7 @@
 from discord_webhook import DiscordWebhook, DiscordEmbed
-import feedparser ,time , requests , shutil
-f = feedparser.parse('https://www.reddit.com/r/subreddit/.rss')
-webhook = DiscordWebhook(url='discord webhook url')
+import time , requests , shutil
+subreddit = "https://www.reddit.com/r/subreddit/"#edit this line
+webhook = DiscordWebhook(url='discord webhook url')#edit this line
 def send(ur):
     embed = DiscordEmbed(title='', description='', color=242424)
     embed.set_image(url=ur)
@@ -14,7 +14,6 @@ def splitUrl(imageUrl):
         if 'jpg' or 'webm' or 'mp4' or 'gif' or 'gifv' or 'png' in imageUrl:
             return imageUrl.split('/')[-1]
 def fetch():
-    subreddit = "https://www.reddit.com/r/subreddit/"
     subJson = ''
     if subJson:
         url = makeUrl(subJson['data']['after'], subreddit)
