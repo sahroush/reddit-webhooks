@@ -3,16 +3,18 @@ import time , requests  , random
 subreddits = ["https://www.reddit.com/r/Animemes/" , "https://www.reddit.com/r/wholesomeanimemes/" , "https://www.reddit.com/r/anime_irl/"];seen=[]
 def start():
     global seen
-    ch = open("cache.txt" , "w+");
-    ch.close()
-    ch = open("cache.txt" , "r+");
-    content = ch.readlines();
-    ch.close()
-    for i in content:
-        seen+=[i[:len(i)-1]]
+    try:
+        ch = open("cache.txt" , "r+");
+        content = ch.readlines();
+        for i in content:
+            seen+=[i[:len(i)-1]]
+        ch.close()
+    except:
+        ch = open("cache.txt" , "w+");
+        ch.close()
 def send(ur , ttl):
     global seen
-    webhook = DiscordWebhook(url='webhook's url')  #edit this line
+    webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/724540368988798978/Tbdmk14oKJF4CB0Krve8dbTYlwUrBT5adb9iPjB-XeukqqR4udn6dIVtnnUpI4MBZuWX')
     embed = DiscordEmbed(title=ttl, description='', color=242424)
     embed.set_image(url=ur)
     webhook.add_embed(embed)
