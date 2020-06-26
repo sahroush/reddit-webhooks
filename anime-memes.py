@@ -20,14 +20,15 @@ def send(ur , ttl):
     webhook.add_embed(embed)
     webhook.execute()
     seen += [ur];
-    end()
-    time.sleep(300)
+    #end()
 def makeUrl(afterID, subreddit):
         return subreddit.split('/.json')[0] + "/.json?after={}".format(afterID)
 def fetch(x , y = 0):
     url = makeUrl('', subreddits[x])
     subJson = requests.get(url, headers={'User-Agent': 'MyRedditScraper'}).json()
     post = subJson['data']['children']
+    if(y > len(post)):
+        return
     imageUrl = (post[y%len(post)]['data']['url'])
     imageTitle = (post[y%len(post)]['data']['title'])
     if(imageUrl in seen or not('jpg' in imageUrl or 'webm' in imageUrl or 'mp4' in imageUrl or 'gif' in imageUrl or 'gifv' in imageUrl or 'png' in imageUrl)):
@@ -36,7 +37,7 @@ def fetch(x , y = 0):
         send(imageUrl , imageTitle)
 def run():
     while(1):
-        end()
+        #end()
         fetch(0);
         fetch(1)
         fetch(2);
@@ -46,5 +47,5 @@ def end():
     for i in seen:
         ch.write(i + '\n')
     ch.close()
-start()
+#start()
 run()
