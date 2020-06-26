@@ -21,7 +21,7 @@ def send(ur , ttl):
     webhook.execute()
     seen += [ur];
     end()
-    time.sleep(1800)
+    time.sleep(300)
 def makeUrl(afterID, subreddit):
         return subreddit.split('/.json')[0] + "/.json?after={}".format(afterID)
 def fetch(x , y = 0):
@@ -34,18 +34,12 @@ def fetch(x , y = 0):
         fetch(x , y + 1)
     else :
         send(imageUrl , imageTitle)
-def run(x = 100 , y = 100 , z = 100):
-    while(x + y + z):
+def run():
+    while(1):
         end()
-        if(x):
-            x-=1;
-            fetch(0);
-        if(y):
-            y-=1
-            fetch(1)
-        if(z):
-            z-=1;
-            fetch(2);
+        fetch(0);
+        fetch(1)
+        fetch(2);
 def end():
     global seen
     ch = open("cache.txt" , "w+");
