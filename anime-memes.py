@@ -20,6 +20,8 @@ def send(ur , ttl):
     webhook.add_embed(embed)
     webhook.execute()
     seen += [ur];
+    if len(seen > 500):
+        seen = seen[250:]
     #end()
 def makeUrl(afterID, subreddit):
         return subreddit.split('/.json')[0] + "/.json?after={}".format(afterID)
