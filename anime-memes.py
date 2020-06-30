@@ -22,7 +22,7 @@ def send(ur , ttl , x):
     webhook.execute()
     seen[x] += [ur];
     if (len(seen[x]) > 1000):
-        seen[x] = []
+        seen[x] = seen[x][500:]
     #end()
 def makeUrl(afterID, subreddit):
         return subreddit.split('/.json')[0] + "/.json?after={}".format(afterID)
