@@ -1,6 +1,6 @@
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import time , requests  , random
-subreddits = ["https://www.reddit.com/r/Animemes/" , "https://www.reddit.com/r/wholesomeanimemes/" , "https://www.reddit.com/r/anime_irl/"];
+subreddits = ["https://www.reddit.com/r/hentai/"];
 seen = [[] , [] , []]
 def start():
     global seen
@@ -15,7 +15,7 @@ def start():
         ch.close()
 def send(ur , ttl , x):
     global seen
-    webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/724540368988798978/Tbdmk14oKJF4CB0Krve8dbTYlwUrBT5adb9iPjB-XeukqqR4udn6dIVtnnUpI4MBZuWX')
+    webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/724571331198320671/ibTQ6I91fbfSrdRS6mK2KDFRbbQRkwlG7uslG5H0R-o7OMurCSApFAEhSNQzGjChrDsL')
     embed = DiscordEmbed(title=ttl, description='', color=242424)
     embed.set_image(url=ur)
     webhook.add_embed(embed)
@@ -42,8 +42,6 @@ def run():
     while(1):
         #end()
         fetch(0);
-        fetch(1)
-        fetch(2);
 def end():
     global seen
     ch = open("cache.txt" , "w+");
